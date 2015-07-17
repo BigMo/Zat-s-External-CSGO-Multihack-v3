@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0C392DB2-895E-4F2A-B2A0-1D79849FC5B2}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CSGOTriggerbot</RootNamespace>
+    <AssemblyName>CSGOTriggerbot</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>93867c7d</NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>CSGOTriggerbot.WithOverlay</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ExternalUtilsCSharp">
+      <HintPath>.\ExternalUtilsCSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="ExternalUtilsCSharp.SharpDXRenderer">
+      <HintPath>.\ExternalUtilsCSharp.SharpDXRenderer.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX">
+      <HintPath>.\SharpDX.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.Direct2D1">
+      <HintPath>.\SharpDX.Direct2D1.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.DXGI">
+      <HintPath>.\SharpDX.DXGI.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CSGOClasses\BaseEntity.cs" />
+    <Compile Include="CSGOClasses\CSLocalPlayer.cs" />
+    <Compile Include="CSGOClasses\Entity.cs" />
+    <Compile Include="CSGOClasses\Fields\BonesField.cs" />
+    <Compile Include="CSGOClasses\Fields\Field.cs" />
+    <Compile Include="CSGOClasses\CSPlayer.cs" />
+    <Compile Include="CSGOClasses\Framework.cs" />
+    <Compile Include="CSGOClasses\Weapon.cs" />
+    <Compile Include="CSGOOffsets.cs" />
+    <Compile Include="CSGO\CSGOClassID.cs" />
+    <Compile Include="CSGOConfigUtils.cs" />
+    <Compile Include="CSGOScanner.cs" />
+    <Compile Include="CSGO\Enums\LifeState.cs" />
+    <Compile Include="CSGO\Enums\SignOnState.cs" />
+    <Compile Include="CSGO\Enums\SpectatorView.cs" />
+    <Compile Include="CSGO\Enums\Team.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SignOnState.cs" />
+    <Compile Include="UI\PlayerESP.cs" />
+    <Compile Include="UI\PlayerRadar.cs" />
+    <Compile Include="WithOverlay.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\uc-exclusive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
